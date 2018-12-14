@@ -1,0 +1,50 @@
+
+<div style="text-align:left">
+  <h1>
+    Bienvenidos a {{ title }}!
+  </h1>
+  <h2>Escrito en Angular7.1.2</h2>
+  <h3>Espacio de memoria: 10 registros</h3>
+  <h4>
+    <button (click)="reinicia()">Reiniciar</button>
+  </h4>
+  <form #signupForm="ngForm" (ngSubmit)="calcular(signupForm)">
+    <label for="datos">Ingrese un comando: </label>
+    <input type="text" name="dato" id="dato" ngModel>
+    <button type="submit" >Ingresar comando</button><br>
+  </form>
+</div>
+
+<div class="inputs" id="inputs">
+  <form #inputForm="ngForm" (ngSubmit)="inputsF(inputForm)">
+    <label for="in">Entrada: </label>
+    <input type="text" name="in1" id="in1" disabled ngModel>
+    <button type="submit" >Enviar</button>
+  </form>
+</div>
+
+<div>
+    <label >Cuando termine de ingresar todos los comandos presione terminar.</label>
+    <button #terminar (click)="emular()">Terminar</button>
+</div>
+
+<div class="inputs" id="inputs">
+  <label>Salida: </label>
+  <label #lab ></label>
+</div>
+
+<div class="debug" id="debug">
+  <label>Debug acumulador</label>
+  <ul>
+    <li *ngFor="let acum of eacumulador">
+      {{ acum }}
+    </li>
+  </ul>
+  <label>Debug memoria</label>
+  <ul>
+    <li *ngFor="let mem of memoria">
+      {{ mem }}
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
