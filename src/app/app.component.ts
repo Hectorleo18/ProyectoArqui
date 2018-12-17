@@ -33,26 +33,26 @@ export class AppComponent implements AfterViewInit {
   calcular(form: NgForm){
     this.arrayComandos.push(form.value.dato)
     if (+form.value.dato.slice(0,2) == 10){
-      this.em.control.disable()
-      this.inputs.control.enable()
+      //this.em.control.disable()
+      //this.inputs.control.enable()
       this.ter.nativeElement.disabled = true
     }
     form.setValue({dato:''})
   }
 
-  inputsF(){
+  /*inputsF(){
     this.entradas.push(this.inputs.value.in1)
     console.log(this.entradas)
     this.em.control.enable()
     this.inputs.control.disable()
     this.ter.nativeElement.disabled = false
     this.inputs.setValue({in1:''})
-  }
+  }*/
   
   emular(){
-    this.em.control.disable()
+    //this.em.control.disable()
     for (let j = 0; j<=10; j++){
-      this.memoria[j] = j
+      this.memoria[j] = 0
     }
     console.log(this.arrayComandos)
     let contador = 0
@@ -72,6 +72,7 @@ export class AppComponent implements AfterViewInit {
               contadorIn = contadorIn
               if (this.verificar(comando)){
                 this.lee(comando.slice(2,5),contadorIn)
+                contadorIn = contadorIn + 1
               }else{
                 alert('Comando inválido en la linea '+contador)
               }
